@@ -1,4 +1,4 @@
-//This program is created by Moxit Shah(A00253719) from Cambrian College.  This contains Caeser Cipher , Average array, Search and Revere array function.
+//This program is created by Moxit Shah(A00253719) from Cambrian College for his Java Assignment.  This contains Caeser Cipher , Average array, Search and Revere array function.
 //Date Created: 31-JAN-2022.
 
 
@@ -12,7 +12,7 @@ public class ArrayTools{
 
     public static void crypt(String text, int shift ){
 
-
+        
         String cipher ="";
         char alphabet;
 
@@ -29,7 +29,7 @@ public class ArrayTools{
                     alphabet = (char) (alphabet+'a'-'z'-1);
 
                 }
-                cipher = cipher + alphabet;
+                cipher += alphabet;
 
             }// lowercase if ended.
 
@@ -43,16 +43,64 @@ public class ArrayTools{
                     alphabet = (char) (alphabet+'A'-'Z'-1);
 
                 }
-                cipher = cipher + alphabet;
+                cipher += alphabet;
             }
             else {
-             cipher = cipher + alphabet;   
+             cipher += alphabet;   
             }
 
 
-        }//for loop ended.
+        }//_______ENCRYPTION DONE______
 
-        System.out.println(" ciphertext : " + cipher + "\n");
+        System.out.println(" Ciphertext : " + cipher + "\n");
+
+
+        // Decryption Starts here.
+        String decrypt="";
+
+        for(int i=0; i<cipher.length(); i++){
+
+            alphabet = cipher.charAt(i);
+
+            if(alphabet>='a' && alphabet<='z'){
+
+                alphabet = (char)(alphabet-shift);
+
+                if(alphabet > 'z') {
+                    
+                    alphabet = (char) (alphabet+'a'+'z'+1);
+
+                }
+                decrypt += alphabet;
+
+            }// lowercase if ended.
+
+
+            else if(alphabet>='A' && alphabet<='Z'){
+
+                alphabet = (char)(alphabet-shift);
+
+                if(alphabet > 'Z') {
+                    
+                    alphabet = (char) (alphabet+'A'+'Z'+1);
+
+                }
+                decrypt += alphabet;
+            }
+            else {
+                decrypt += alphabet;   
+            }
+
+
+        }//_______DECRYPTION DONE______
+
+        System.out.println(" Decrypttext with -" + shift+ " : " + decrypt + "\n");
+        
+
+
+
+
+
     }
 
     /*********----------------------------Average---------------------***************/
@@ -65,7 +113,7 @@ public class ArrayTools{
         for(int i=0; i<n; i++){
             
             System.out.println("   " + arr[i]);
-            total = total + arr[i];
+            total += arr[i];
 
         }
         
@@ -99,7 +147,8 @@ public class ArrayTools{
             }  
             if ( first > last ){  
                System.out.println("Element: "+key+" is not found!");  
-            }  
+            } 
+
         } 
 
 
@@ -142,7 +191,7 @@ public class ArrayTools{
 
 
         /*********----------------------------Caesar Cipher---------------------***************/
-
+        
         //Scanner function for the input
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the text");
@@ -153,7 +202,7 @@ public class ArrayTools{
         int shift = in.nextInt();
 
         crypt(text, shift);
-
+       
 
         /*********----------------------------Average---------------------***************/
 
@@ -173,8 +222,8 @@ public class ArrayTools{
 
 
         /*********----------------------------Search---------------------***************/
-
-        int key = 5;  
+        System.out.println("Enter the key to be found: ");
+        int key = in.nextInt();  
         int last= n-1;  
         binarySearch(arr, 0, last, key);
 
@@ -187,11 +236,6 @@ public class ArrayTools{
 
 
     }  //main method
-
-
-
-   
-    
 
 
 
