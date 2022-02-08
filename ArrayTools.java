@@ -189,7 +189,7 @@ public class ArrayTools{
 
     public static void main(String[] args){
 
-
+        try{
         /*********----------------------------Caesar Cipher---------------------***************/
         
         //Scanner function for the input
@@ -231,6 +231,12 @@ public class ArrayTools{
         /*********----------------------------Reverse---------------------***************/
 
         reverse(arr, n);
+
+
+    }
+    catch(Exception e){
+        System.out.println("please enter the input correctly!!");
+    }
 
 
 
